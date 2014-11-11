@@ -2,7 +2,7 @@
 //  YHWHMasterViewController.h
 //  NamesOfGod
 //
-//  Created by Peter Jensen on 2/18/14.
+//  Created by Peter Jensen on 9/18/14.
 //  Copyright (c) 2014 Peter Christian Jensen.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,6 +24,53 @@
 // THE SOFTWARE.
 //
 
-@interface YHWHMasterViewController : UITableViewController
+@import UIKit;
+@import CoreData;
+
+@class YHWHName;
+
+@protocol YHWHNameDataSource <NSObject>
+
+/**
+ Returns the name object at the specified index path.
+
+ @param indexPath The index path for the requested name object.
+
+ @return The name object at the specified index path, or nil if the index path is out
+ of range.
+ */
+- (YHWHName *)nameAtIndexPath:(NSIndexPath *)indexPath;
+/**
+ Returns the index path for the next name object.
+
+ @note The index path will wrap around to the first name, if at the last name.
+
+ @return The index path of the next name, or nil if no names exist.
+ */
+- (NSIndexPath *)indexPathAfterIndexPath:(NSIndexPath *)indexPath;
+/**
+ Returns the index path for the previous name object.
+
+ @note The index path will wrap around to the last name, if at the first name.
+
+ @return The index path of the previous name, or nil if no names exist.
+ */
+- (NSIndexPath *)indexPathBeforeIndexPath:(NSIndexPath *)indexPath;
+/**
+ Returns the number of name objects.
+ 
+ @note Filtered search results may return no matches.
+
+ @return The number of names, or 0 if no names exist
+ */
+- (NSUInteger)numberOfNames;
 
 @end
+
+@interface YHWHMasterViewController : UITableViewController <NSFetchedResultsControllerDelegate, YHWHNameDataSource>
+
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+
+@end
+

@@ -24,6 +24,8 @@
 // THE SOFTWARE.
 //
 
+@import UIKit;
+
 @interface UISegmentedControl (YHWHSegmentIndex)
 
 /**

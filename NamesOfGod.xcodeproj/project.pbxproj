@@ -6,118 +6,89 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		D0183DB418EA3E7F009145ED /* OCLint */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = D0183DB718EA3E80009145ED /* Build configuration list for PBXAggregateTarget "OCLint" */;
-			buildPhases = (
-				D0183DB818EA3E9A009145ED /* ShellScript */,
-			);
-			dependencies = (
-			);
-			name = OCLint;
-			productName = OCLint;
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
-		D0183DBB18EE1697009145ED /* UITextView+YHWHContentOffset.m in Sources */ = {isa = PBXBuildFile; fileRef = D0183DBA18EE1697009145ED /* UITextView+YHWHContentOffset.m */; };
-		D0183E0518EF2714009145ED /* UISegmentedControl+YHWHSegmentIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = D0183E0418EF2714009145ED /* UISegmentedControl+YHWHSegmentIndex.m */; };
-		D04251C518F460E6002391F0 /* YHWHNamesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D04251C418F460E6002391F0 /* YHWHNamesTests.m */; };
-		D066628C18B404C800412865 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D066628A18B404C800412865 /* InfoPlist.strings */; };
-		D066628E18B404C800412865 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D066628D18B404C800412865 /* main.m */; };
-		D066629218B404C800412865 /* YHWHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D066629118B404C800412865 /* YHWHAppDelegate.m */; };
-		D066629518B404C800412865 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D066629318B404C800412865 /* Main_iPhone.storyboard */; };
-		D066629818B404C800412865 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D066629618B404C800412865 /* Main_iPad.storyboard */; };
-		D066629B18B404C800412865 /* YHWHMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D066629A18B404C800412865 /* YHWHMasterViewController.m */; };
-		D066629E18B404C800412865 /* YHWHDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D066629D18B404C800412865 /* YHWHDetailViewController.m */; };
-		D06662A018B404C800412865 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D066629F18B404C800412865 /* Images.xcassets */; };
-		D06662B118B404C800412865 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D06662AF18B404C800412865 /* InfoPlist.strings */; };
-		D06662BE18B7E57200412865 /* YHWHTitleView.m in Sources */ = {isa = PBXBuildFile; fileRef = D06662BD18B7E57200412865 /* YHWHTitleView.m */; };
-		D0675A0F18C4293D00BB2B87 /* YHWHConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D0675A0E18C4293D00BB2B87 /* YHWHConstants.m */; };
-		D0675A1218C444B700BB2B87 /* YHWHNamesOfGod.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0675A1418C444B700BB2B87 /* YHWHNamesOfGod.plist */; };
-		D0675A1818C52CD600BB2B87 /* YHWHVersesESV.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0675A1A18C52CD600BB2B87 /* YHWHVersesESV.plist */; };
-		D0675A2318C548A300BB2B87 /* YHWHVersesNASB.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0675A2518C548A300BB2B87 /* YHWHVersesNASB.plist */; };
-		D0675A2618C548AB00BB2B87 /* YHWHVersesNIV.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0675A2818C548AB00BB2B87 /* YHWHVersesNIV.plist */; };
-		D0675A2918C548B100BB2B87 /* YHWHVersesNKJV.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0675A2B18C548B100BB2B87 /* YHWHVersesNKJV.plist */; };
-		D0675A2C18C548B700BB2B87 /* YHWHVersesNLT.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0675A2E18C548B700BB2B87 /* YHWHVersesNLT.plist */; };
-		D0785B5118C046ED0004C642 /* YHWHName.m in Sources */ = {isa = PBXBuildFile; fileRef = D0785B5018C046ED0004C642 /* YHWHName.m */; };
-		D081EAF018F3ABE600631AEF /* UISegmentedControlCategoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D081EAEF18F3ABE600631AEF /* UISegmentedControlCategoryTests.m */; };
-		D092593218D5280D0014886F /* YHWHNames.m in Sources */ = {isa = PBXBuildFile; fileRef = D092593118D5280D0014886F /* YHWHNames.m */; };
-		D0AE6FD718F34BD3004B8700 /* YHWHNameTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D0AE6FD618F34BD3004B8700 /* YHWHNameTests.m */; };
-		D0FB119C18C0E66700C1ECE8 /* UIFont+YHWHCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FB119B18C0E66700C1ECE8 /* UIFont+YHWHCustomFont.m */; };
-		D0FB11A918C13F4A00C1ECE8 /* TeXGyreHeros-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0FB11A518C13F4A00C1ECE8 /* TeXGyreHeros-Regular.otf */; };
-		D0FB11B518C17ACB00C1ECE8 /* TeXGyreHeros-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0FB11B418C17ACB00C1ECE8 /* TeXGyreHeros-Italic.otf */; };
-		D0FB11B718C182EE00C1ECE8 /* TeXGyreHeros-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0FB11B618C182EE00C1ECE8 /* TeXGyreHeros-Bold.otf */; };
-		D0FB11B918C182FA00C1ECE8 /* TeXGyreHeros-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D0FB11B818C182FA00C1ECE8 /* TeXGyreHeros-BoldItalic.otf */; };
+		D026D16019CD10B700AF6775 /* UIFont+YHWHCustomFont.m in Sources */ = {isa = PBXBuildFile; fileRef = D026D15F19CD10B700AF6775 /* UIFont+YHWHCustomFont.m */; };
+		D026D16519CD144500AF6775 /* TeXGyreHeros-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D026D16119CD144500AF6775 /* TeXGyreHeros-Bold.otf */; };
+		D026D16619CD144500AF6775 /* TeXGyreHeros-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D026D16219CD144500AF6775 /* TeXGyreHeros-BoldItalic.otf */; };
+		D026D16719CD144500AF6775 /* TeXGyreHeros-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = D026D16319CD144500AF6775 /* TeXGyreHeros-Italic.otf */; };
+		D026D16819CD144500AF6775 /* TeXGyreHeros-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D026D16419CD144500AF6775 /* TeXGyreHeros-Regular.otf */; };
+		D026D16B19CF420C00AF6775 /* UISegmentedControl+YHWHSegmentIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = D026D16A19CF420C00AF6775 /* UISegmentedControl+YHWHSegmentIndex.m */; };
+		D026D16E19CF46E500AF6775 /* YHWHConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D026D16D19CF46E500AF6775 /* YHWHConstants.m */; };
+		D0A53D6B19CB5EEF00306799 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A53D6A19CB5EEF00306799 /* main.m */; };
+		D0A53D6E19CB5EEF00306799 /* YHWHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A53D6D19CB5EEF00306799 /* YHWHAppDelegate.m */; };
+		D0A53D7119CB5EEF00306799 /* NamesOfGod.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D0A53D6F19CB5EEF00306799 /* NamesOfGod.xcdatamodeld */; };
+		D0A53D7419CB5EEF00306799 /* YHWHMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A53D7319CB5EEF00306799 /* YHWHMasterViewController.m */; };
+		D0A53D7719CB5EEF00306799 /* YHWHDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A53D7619CB5EEF00306799 /* YHWHDetailViewController.m */; };
+		D0A53D7A19CB5EEF00306799 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D0A53D7819CB5EEF00306799 /* Main.storyboard */; };
+		D0A53D7C19CB5EEF00306799 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A53D7B19CB5EEF00306799 /* Images.xcassets */; };
+		D0A53D7F19CB5EEF00306799 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0A53D7D19CB5EEF00306799 /* LaunchScreen.xib */; };
+		D0A53D8B19CB5EEF00306799 /* NamesOfGodTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A53D8A19CB5EEF00306799 /* NamesOfGodTests.m */; };
+		D0A53DA419CB66B500306799 /* _YHWHName.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A53D9D19CB66B500306799 /* _YHWHName.m */; };
+		D0A53DA519CB66B500306799 /* YHWHName.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A53D9F19CB66B500306799 /* YHWHName.m */; };
+		D0A53DA619CB66B500306799 /* _YHWHVerse.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A53DA119CB66B500306799 /* _YHWHVerse.m */; };
+		D0A53DA719CB66B500306799 /* YHWHVerse.m in Sources */ = {isa = PBXBuildFile; fileRef = D0A53DA319CB66B500306799 /* YHWHVerse.m */; };
+		D0A53DA919CB698100306799 /* NamesOfGod.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = D0A53DA819CB698100306799 /* NamesOfGod.sqlite */; };
+		D0EA9B331A0C7810007F7959 /* UISegmentedControlCategoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D0EA9B321A0C7810007F7959 /* UISegmentedControlCategoryTests.m */; settings = {COMPILER_FLAGS = "-Wno-gnu-statement-expression -Wno-documentation-unknown-command"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		D06662AA18B404C800412865 /* PBXContainerItemProxy */ = {
+		D0A53D8519CB5EEF00306799 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = D066627618B404C800412865 /* Project object */;
+			containerPortal = D0A53D5D19CB5EEF00306799 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D066627D18B404C800412865;
+			remoteGlobalIDString = D0A53D6419CB5EEF00306799;
 			remoteInfo = NamesOfGod;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D0183DB918EE1697009145ED /* UITextView+YHWHContentOffset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+YHWHContentOffset.h"; sourceTree = "<group>"; };
-		D0183DBA18EE1697009145ED /* UITextView+YHWHContentOffset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+YHWHContentOffset.m"; sourceTree = "<group>"; };
-		D0183E0318EF2714009145ED /* UISegmentedControl+YHWHSegmentIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISegmentedControl+YHWHSegmentIndex.h"; sourceTree = "<group>"; };
-		D0183E0418EF2714009145ED /* UISegmentedControl+YHWHSegmentIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISegmentedControl+YHWHSegmentIndex.m"; sourceTree = "<group>"; };
-		D04251C418F460E6002391F0 /* YHWHNamesTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHWHNamesTests.m; sourceTree = "<group>"; };
-		D066627E18B404C800412865 /* NamesOfGod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NamesOfGod.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D066628918B404C800412865 /* NamesOfGod-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NamesOfGod-Info.plist"; sourceTree = "<group>"; };
-		D066628B18B404C800412865 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D066628D18B404C800412865 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D066628F18B404C800412865 /* NamesOfGod-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NamesOfGod-Prefix.pch"; sourceTree = "<group>"; };
-		D066629018B404C800412865 /* YHWHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHWHAppDelegate.h; sourceTree = "<group>"; };
-		D066629118B404C800412865 /* YHWHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHWHAppDelegate.m; sourceTree = "<group>"; };
-		D066629418B404C800412865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
-		D066629718B404C800412865 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		D066629918B404C800412865 /* YHWHMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHWHMasterViewController.h; sourceTree = "<group>"; };
-		D066629A18B404C800412865 /* YHWHMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHWHMasterViewController.m; sourceTree = "<group>"; };
-		D066629C18B404C800412865 /* YHWHDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHWHDetailViewController.h; sourceTree = "<group>"; };
-		D066629D18B404C800412865 /* YHWHDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHWHDetailViewController.m; sourceTree = "<group>"; };
-		D066629F18B404C800412865 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		D06662A518B404C800412865 /* NamesOfGodTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NamesOfGodTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D06662AE18B404C800412865 /* NamesOfGodTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NamesOfGodTests-Info.plist"; sourceTree = "<group>"; };
-		D06662B018B404C800412865 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		D06662BC18B7E57200412865 /* YHWHTitleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHWHTitleView.h; sourceTree = "<group>"; };
-		D06662BD18B7E57200412865 /* YHWHTitleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHWHTitleView.m; sourceTree = "<group>"; };
-		D0675A0D18C4293D00BB2B87 /* YHWHConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHWHConstants.h; sourceTree = "<group>"; };
-		D0675A0E18C4293D00BB2B87 /* YHWHConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHWHConstants.m; sourceTree = "<group>"; };
-		D0675A1318C444B700BB2B87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = Base; path = Base.lproj/YHWHNamesOfGod.plist; sourceTree = "<group>"; };
-		D0675A1918C52CD600BB2B87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = Base; path = Base.lproj/YHWHVersesESV.plist; sourceTree = "<group>"; };
-		D0675A2418C548A300BB2B87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = Base; path = Base.lproj/YHWHVersesNASB.plist; sourceTree = "<group>"; };
-		D0675A2718C548AB00BB2B87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = Base; path = Base.lproj/YHWHVersesNIV.plist; sourceTree = "<group>"; };
-		D0675A2A18C548B100BB2B87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = Base; path = Base.lproj/YHWHVersesNKJV.plist; sourceTree = "<group>"; };
-		D0675A2D18C548B700BB2B87 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = Base; path = Base.lproj/YHWHVersesNLT.plist; sourceTree = "<group>"; };
-		D0785B4F18C046ED0004C642 /* YHWHName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHWHName.h; sourceTree = "<group>"; };
-		D0785B5018C046ED0004C642 /* YHWHName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHWHName.m; sourceTree = "<group>"; };
-		D081EAEF18F3ABE600631AEF /* UISegmentedControlCategoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISegmentedControlCategoryTests.m; sourceTree = "<group>"; };
-		D092593018D5280D0014886F /* YHWHNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHWHNames.h; sourceTree = "<group>"; };
-		D092593118D5280D0014886F /* YHWHNames.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHWHNames.m; sourceTree = "<group>"; };
-		D0AE6FD618F34BD3004B8700 /* YHWHNameTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHWHNameTests.m; sourceTree = "<group>"; };
-		D0FB119A18C0E66700C1ECE8 /* UIFont+YHWHCustomFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+YHWHCustomFont.h"; sourceTree = "<group>"; };
-		D0FB119B18C0E66700C1ECE8 /* UIFont+YHWHCustomFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+YHWHCustomFont.m"; sourceTree = "<group>"; };
-		D0FB11A518C13F4A00C1ECE8 /* TeXGyreHeros-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TeXGyreHeros-Regular.otf"; sourceTree = "<group>"; };
-		D0FB11B418C17ACB00C1ECE8 /* TeXGyreHeros-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TeXGyreHeros-Italic.otf"; sourceTree = "<group>"; };
-		D0FB11B618C182EE00C1ECE8 /* TeXGyreHeros-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TeXGyreHeros-Bold.otf"; sourceTree = "<group>"; };
-		D0FB11B818C182FA00C1ECE8 /* TeXGyreHeros-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TeXGyreHeros-BoldItalic.otf"; sourceTree = "<group>"; };
+		D026D15E19CD10B700AF6775 /* UIFont+YHWHCustomFont.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+YHWHCustomFont.h"; sourceTree = "<group>"; };
+		D026D15F19CD10B700AF6775 /* UIFont+YHWHCustomFont.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+YHWHCustomFont.m"; sourceTree = "<group>"; };
+		D026D16119CD144500AF6775 /* TeXGyreHeros-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TeXGyreHeros-Bold.otf"; sourceTree = "<group>"; };
+		D026D16219CD144500AF6775 /* TeXGyreHeros-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TeXGyreHeros-BoldItalic.otf"; sourceTree = "<group>"; };
+		D026D16319CD144500AF6775 /* TeXGyreHeros-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TeXGyreHeros-Italic.otf"; sourceTree = "<group>"; };
+		D026D16419CD144500AF6775 /* TeXGyreHeros-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TeXGyreHeros-Regular.otf"; sourceTree = "<group>"; };
+		D026D16919CF420C00AF6775 /* UISegmentedControl+YHWHSegmentIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISegmentedControl+YHWHSegmentIndex.h"; sourceTree = "<group>"; };
+		D026D16A19CF420C00AF6775 /* UISegmentedControl+YHWHSegmentIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UISegmentedControl+YHWHSegmentIndex.m"; sourceTree = "<group>"; };
+		D026D16C19CF46E500AF6775 /* YHWHConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHWHConstants.h; sourceTree = "<group>"; };
+		D026D16D19CF46E500AF6775 /* YHWHConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHWHConstants.m; sourceTree = "<group>"; };
+		D0A53D6519CB5EEF00306799 /* NamesOfGod.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NamesOfGod.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0A53D6919CB5EEF00306799 /* NamesOfGod-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NamesOfGod-Info.plist"; sourceTree = "<group>"; };
+		D0A53D6A19CB5EEF00306799 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D0A53D6C19CB5EEF00306799 /* YHWHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHWHAppDelegate.h; sourceTree = "<group>"; };
+		D0A53D6D19CB5EEF00306799 /* YHWHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHWHAppDelegate.m; sourceTree = "<group>"; };
+		D0A53D7019CB5EEF00306799 /* NamesOfGod.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NamesOfGod.xcdatamodel; sourceTree = "<group>"; };
+		D0A53D7219CB5EEF00306799 /* YHWHMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHWHMasterViewController.h; sourceTree = "<group>"; };
+		D0A53D7319CB5EEF00306799 /* YHWHMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHWHMasterViewController.m; sourceTree = "<group>"; };
+		D0A53D7519CB5EEF00306799 /* YHWHDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YHWHDetailViewController.h; sourceTree = "<group>"; };
+		D0A53D7619CB5EEF00306799 /* YHWHDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YHWHDetailViewController.m; sourceTree = "<group>"; };
+		D0A53D7919CB5EEF00306799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D0A53D7B19CB5EEF00306799 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D0A53D7E19CB5EEF00306799 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		D0A53D8419CB5EEF00306799 /* NamesOfGodTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NamesOfGodTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0A53D8919CB5EEF00306799 /* NamesOfGodTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "NamesOfGodTests-Info.plist"; sourceTree = "<group>"; };
+		D0A53D8A19CB5EEF00306799 /* NamesOfGodTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NamesOfGodTests.m; sourceTree = "<group>"; };
+		D0A53D9C19CB66B500306799 /* _YHWHName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _YHWHName.h; sourceTree = "<group>"; };
+		D0A53D9D19CB66B500306799 /* _YHWHName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _YHWHName.m; sourceTree = "<group>"; };
+		D0A53D9E19CB66B500306799 /* YHWHName.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHWHName.h; sourceTree = "<group>"; };
+		D0A53D9F19CB66B500306799 /* YHWHName.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHWHName.m; sourceTree = "<group>"; };
+		D0A53DA019CB66B500306799 /* _YHWHVerse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _YHWHVerse.h; sourceTree = "<group>"; };
+		D0A53DA119CB66B500306799 /* _YHWHVerse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = _YHWHVerse.m; sourceTree = "<group>"; };
+		D0A53DA219CB66B500306799 /* YHWHVerse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YHWHVerse.h; sourceTree = "<group>"; };
+		D0A53DA319CB66B500306799 /* YHWHVerse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YHWHVerse.m; sourceTree = "<group>"; };
+		D0A53DA819CB698100306799 /* NamesOfGod.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; name = NamesOfGod.sqlite; path = ../Base.lproj/NamesOfGod.sqlite; sourceTree = "<group>"; };
+		D0EA9B321A0C7810007F7959 /* UISegmentedControlCategoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISegmentedControlCategoryTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D066627B18B404C800412865 /* Frameworks */ = {
+		D0A53D6219CB5EEF00306799 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D06662A218B404C800412865 /* Frameworks */ = {
+		D0A53D8119CB5EEF00306799 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -127,179 +98,162 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D05B0A5918DDE996002C01F3 /* Classes */ = {
+		D0A53D5C19CB5EEF00306799 = {
 			isa = PBXGroup;
 			children = (
-				D05B0A5A18DDE996002C01F3 /* Categories */,
-				D05B0A5B18DDE996002C01F3 /* Controllers */,
-				D05B0A5C18DDE996002C01F3 /* Helpers */,
-				D05B0A5D18DDE996002C01F3 /* Models */,
-				D05B0A5E18DDE996002C01F3 /* Views */,
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		D05B0A5A18DDE996002C01F3 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				D0FB119A18C0E66700C1ECE8 /* UIFont+YHWHCustomFont.h */,
-				D0FB119B18C0E66700C1ECE8 /* UIFont+YHWHCustomFont.m */,
-				D0183E0318EF2714009145ED /* UISegmentedControl+YHWHSegmentIndex.h */,
-				D0183E0418EF2714009145ED /* UISegmentedControl+YHWHSegmentIndex.m */,
-				D0183DB918EE1697009145ED /* UITextView+YHWHContentOffset.h */,
-				D0183DBA18EE1697009145ED /* UITextView+YHWHContentOffset.m */,
-			);
-			path = Categories;
-			sourceTree = "<group>";
-		};
-		D05B0A5B18DDE996002C01F3 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				D066629C18B404C800412865 /* YHWHDetailViewController.h */,
-				D066629D18B404C800412865 /* YHWHDetailViewController.m */,
-				D066629918B404C800412865 /* YHWHMasterViewController.h */,
-				D066629A18B404C800412865 /* YHWHMasterViewController.m */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		D05B0A5C18DDE996002C01F3 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				D0675A0D18C4293D00BB2B87 /* YHWHConstants.h */,
-				D0675A0E18C4293D00BB2B87 /* YHWHConstants.m */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		D05B0A5D18DDE996002C01F3 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				D0785B4F18C046ED0004C642 /* YHWHName.h */,
-				D0785B5018C046ED0004C642 /* YHWHName.m */,
-				D092593018D5280D0014886F /* YHWHNames.h */,
-				D092593118D5280D0014886F /* YHWHNames.m */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		D05B0A5E18DDE996002C01F3 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				D06662BC18B7E57200412865 /* YHWHTitleView.h */,
-				D06662BD18B7E57200412865 /* YHWHTitleView.m */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		D05B0A5F18DDE9EE002C01F3 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				D05B0A6018DDE9EE002C01F3 /* Fonts */,
-				D092592C18D231BD0014886F /* Property Lists */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		D05B0A6018DDE9EE002C01F3 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				D0FB11B618C182EE00C1ECE8 /* TeXGyreHeros-Bold.otf */,
-				D0FB11B818C182FA00C1ECE8 /* TeXGyreHeros-BoldItalic.otf */,
-				D0FB11B418C17ACB00C1ECE8 /* TeXGyreHeros-Italic.otf */,
-				D0FB11A518C13F4A00C1ECE8 /* TeXGyreHeros-Regular.otf */,
-			);
-			path = Fonts;
-			sourceTree = "<group>";
-		};
-		D066627518B404C800412865 = {
-			isa = PBXGroup;
-			children = (
-				D066628718B404C800412865 /* NamesOfGod */,
-				D06662AC18B404C800412865 /* NamesOfGodTests */,
-				D066627F18B404C800412865 /* Products */,
+				D0A53D6719CB5EEF00306799 /* NamesOfGod */,
+				D0A53D8719CB5EEF00306799 /* NamesOfGodTests */,
+				D0A53D6619CB5EEF00306799 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		D066627F18B404C800412865 /* Products */ = {
+		D0A53D6619CB5EEF00306799 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D066627E18B404C800412865 /* NamesOfGod.app */,
-				D06662A518B404C800412865 /* NamesOfGodTests.xctest */,
+				D0A53D6519CB5EEF00306799 /* NamesOfGod.app */,
+				D0A53D8419CB5EEF00306799 /* NamesOfGodTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D066628718B404C800412865 /* NamesOfGod */ = {
+		D0A53D6719CB5EEF00306799 /* NamesOfGod */ = {
 			isa = PBXGroup;
 			children = (
-				D066629018B404C800412865 /* YHWHAppDelegate.h */,
-				D066629118B404C800412865 /* YHWHAppDelegate.m */,
-				D05B0A5918DDE996002C01F3 /* Classes */,
-				D066629318B404C800412865 /* Main_iPhone.storyboard */,
-				D066629618B404C800412865 /* Main_iPad.storyboard */,
-				D066629F18B404C800412865 /* Images.xcassets */,
-				D066628818B404C800412865 /* Supporting Files */,
+				D0A53D6C19CB5EEF00306799 /* YHWHAppDelegate.h */,
+				D0A53D6D19CB5EEF00306799 /* YHWHAppDelegate.m */,
+				D0A53D9619CB63A100306799 /* Classes */,
+				D0A53D7819CB5EEF00306799 /* Main.storyboard */,
+				D0A53D7B19CB5EEF00306799 /* Images.xcassets */,
+				D0A53D7D19CB5EEF00306799 /* LaunchScreen.xib */,
+				D0A53D6F19CB5EEF00306799 /* NamesOfGod.xcdatamodeld */,
+				D0A53D6819CB5EEF00306799 /* Supporting Files */,
 			);
 			path = NamesOfGod;
 			sourceTree = "<group>";
 		};
-		D066628818B404C800412865 /* Supporting Files */ = {
+		D0A53D6819CB5EEF00306799 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D05B0A5F18DDE9EE002C01F3 /* Resources */,
-				D066628A18B404C800412865 /* InfoPlist.strings */,
-				D066628D18B404C800412865 /* main.m */,
-				D066628918B404C800412865 /* NamesOfGod-Info.plist */,
-				D066628F18B404C800412865 /* NamesOfGod-Prefix.pch */,
+				D0A53D9419CB63A100306799 /* Resources */,
+				D0A53D6919CB5EEF00306799 /* NamesOfGod-Info.plist */,
+				D0A53D6A19CB5EEF00306799 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D06662AC18B404C800412865 /* NamesOfGodTests */ = {
+		D0A53D8719CB5EEF00306799 /* NamesOfGodTests */ = {
 			isa = PBXGroup;
 			children = (
-				D081EAEF18F3ABE600631AEF /* UISegmentedControlCategoryTests.m */,
-				D04251C418F460E6002391F0 /* YHWHNamesTests.m */,
-				D0AE6FD618F34BD3004B8700 /* YHWHNameTests.m */,
-				D06662AD18B404C800412865 /* Supporting Files */,
+				D0A53D8A19CB5EEF00306799 /* NamesOfGodTests.m */,
+				D0EA9B321A0C7810007F7959 /* UISegmentedControlCategoryTests.m */,
+				D0A53D8819CB5EEF00306799 /* Supporting Files */,
 			);
 			path = NamesOfGodTests;
 			sourceTree = "<group>";
 		};
-		D06662AD18B404C800412865 /* Supporting Files */ = {
+		D0A53D8819CB5EEF00306799 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D06662AF18B404C800412865 /* InfoPlist.strings */,
-				D06662AE18B404C800412865 /* NamesOfGodTests-Info.plist */,
+				D0A53D8919CB5EEF00306799 /* NamesOfGodTests-Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		D092592C18D231BD0014886F /* Property Lists */ = {
+		D0A53D9419CB63A100306799 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D0675A1418C444B700BB2B87 /* YHWHNamesOfGod.plist */,
-				D0675A1A18C52CD600BB2B87 /* YHWHVersesESV.plist */,
-				D0675A2518C548A300BB2B87 /* YHWHVersesNASB.plist */,
-				D0675A2818C548AB00BB2B87 /* YHWHVersesNIV.plist */,
-				D0675A2B18C548B100BB2B87 /* YHWHVersesNKJV.plist */,
-				D0675A2E18C548B700BB2B87 /* YHWHVersesNLT.plist */,
+				D0A53DA819CB698100306799 /* NamesOfGod.sqlite */,
+				D0A53D9519CB63A100306799 /* Fonts */,
 			);
-			name = "Property Lists";
-			path = ..;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D0A53D9519CB63A100306799 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D026D16119CD144500AF6775 /* TeXGyreHeros-Bold.otf */,
+				D026D16219CD144500AF6775 /* TeXGyreHeros-BoldItalic.otf */,
+				D026D16319CD144500AF6775 /* TeXGyreHeros-Italic.otf */,
+				D026D16419CD144500AF6775 /* TeXGyreHeros-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		D0A53D9619CB63A100306799 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D0A53D9719CB63A100306799 /* Categories */,
+				D0A53D9819CB63A100306799 /* Controllers */,
+				D0A53D9919CB63A100306799 /* Helpers */,
+				D0A53D9A19CB63A100306799 /* Models */,
+				D0A53D9B19CB63A100306799 /* Views */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		D0A53D9719CB63A100306799 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				D026D15E19CD10B700AF6775 /* UIFont+YHWHCustomFont.h */,
+				D026D15F19CD10B700AF6775 /* UIFont+YHWHCustomFont.m */,
+				D026D16919CF420C00AF6775 /* UISegmentedControl+YHWHSegmentIndex.h */,
+				D026D16A19CF420C00AF6775 /* UISegmentedControl+YHWHSegmentIndex.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		D0A53D9819CB63A100306799 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D0A53D7219CB5EEF00306799 /* YHWHMasterViewController.h */,
+				D0A53D7319CB5EEF00306799 /* YHWHMasterViewController.m */,
+				D0A53D7519CB5EEF00306799 /* YHWHDetailViewController.h */,
+				D0A53D7619CB5EEF00306799 /* YHWHDetailViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D0A53D9919CB63A100306799 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D026D16C19CF46E500AF6775 /* YHWHConstants.h */,
+				D026D16D19CF46E500AF6775 /* YHWHConstants.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D0A53D9A19CB63A100306799 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D0A53D9C19CB66B500306799 /* _YHWHName.h */,
+				D0A53D9D19CB66B500306799 /* _YHWHName.m */,
+				D0A53DA019CB66B500306799 /* _YHWHVerse.h */,
+				D0A53DA119CB66B500306799 /* _YHWHVerse.m */,
+				D0A53D9E19CB66B500306799 /* YHWHName.h */,
+				D0A53D9F19CB66B500306799 /* YHWHName.m */,
+				D0A53DA219CB66B500306799 /* YHWHVerse.h */,
+				D0A53DA319CB66B500306799 /* YHWHVerse.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D0A53D9B19CB63A100306799 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D066627D18B404C800412865 /* NamesOfGod */ = {
+		D0A53D6419CB5EEF00306799 /* NamesOfGod */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D06662B618B404C800412865 /* Build configuration list for PBXNativeTarget "NamesOfGod" */;
+			buildConfigurationList = D0A53D8E19CB5EEF00306799 /* Build configuration list for PBXNativeTarget "NamesOfGod" */;
 			buildPhases = (
-				D066627A18B404C800412865 /* Sources */,
-				D066627B18B404C800412865 /* Frameworks */,
-				D066627C18B404C800412865 /* Resources */,
+				D0A53D6119CB5EEF00306799 /* Sources */,
+				D0A53D6219CB5EEF00306799 /* Frameworks */,
+				D0A53D6319CB5EEF00306799 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -307,43 +261,47 @@
 			);
 			name = NamesOfGod;
 			productName = NamesOfGod;
-			productReference = D066627E18B404C800412865 /* NamesOfGod.app */;
+			productReference = D0A53D6519CB5EEF00306799 /* NamesOfGod.app */;
 			productType = "com.apple.product-type.application";
 		};
-		D06662A418B404C800412865 /* NamesOfGodTests */ = {
+		D0A53D8319CB5EEF00306799 /* NamesOfGodTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D06662B918B404C800412865 /* Build configuration list for PBXNativeTarget "NamesOfGodTests" */;
+			buildConfigurationList = D0A53D9119CB5EEF00306799 /* Build configuration list for PBXNativeTarget "NamesOfGodTests" */;
 			buildPhases = (
-				D06662A118B404C800412865 /* Sources */,
-				D06662A218B404C800412865 /* Frameworks */,
-				D06662A318B404C800412865 /* Resources */,
+				D0A53D8019CB5EEF00306799 /* Sources */,
+				D0A53D8119CB5EEF00306799 /* Frameworks */,
+				D0A53D8219CB5EEF00306799 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D06662AB18B404C800412865 /* PBXTargetDependency */,
+				D0A53D8619CB5EEF00306799 /* PBXTargetDependency */,
 			);
 			name = NamesOfGodTests;
 			productName = NamesOfGodTests;
-			productReference = D06662A518B404C800412865 /* NamesOfGodTests.xctest */;
+			productReference = D0A53D8419CB5EEF00306799 /* NamesOfGodTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D066627618B404C800412865 /* Project object */ = {
+		D0A53D5D19CB5EEF00306799 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = YHWH;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Peter Christian Jensen";
 				TargetAttributes = {
-					D06662A418B404C800412865 = {
-						TestTargetID = D066627D18B404C800412865;
+					D0A53D6419CB5EEF00306799 = {
+						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = DBV67NC7GC;
+					};
+					D0A53D8319CB5EEF00306799 = {
+						CreatedOnToolsVersion = 6.0.1;
+						TestTargetID = D0A53D6419CB5EEF00306799;
 					};
 				};
 			};
-			buildConfigurationList = D066627918B404C800412865 /* Build configuration list for PBXProject "NamesOfGod" */;
+			buildConfigurationList = D0A53D6019CB5EEF00306799 /* Build configuration list for PBXProject "NamesOfGod" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -351,204 +309,102 @@
 				en,
 				Base,
 			);
-			mainGroup = D066627518B404C800412865;
-			productRefGroup = D066627F18B404C800412865 /* Products */;
+			mainGroup = D0A53D5C19CB5EEF00306799;
+			productRefGroup = D0A53D6619CB5EEF00306799 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D066627D18B404C800412865 /* NamesOfGod */,
-				D06662A418B404C800412865 /* NamesOfGodTests */,
-				D0183DB418EA3E7F009145ED /* OCLint */,
+				D0A53D6419CB5EEF00306799 /* NamesOfGod */,
+				D0A53D8319CB5EEF00306799 /* NamesOfGodTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D066627C18B404C800412865 /* Resources */ = {
+		D0A53D6319CB5EEF00306799 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D066629518B404C800412865 /* Main_iPhone.storyboard in Resources */,
-				D066629818B404C800412865 /* Main_iPad.storyboard in Resources */,
-				D06662A018B404C800412865 /* Images.xcassets in Resources */,
-				D066628C18B404C800412865 /* InfoPlist.strings in Resources */,
-				D0675A1218C444B700BB2B87 /* YHWHNamesOfGod.plist in Resources */,
-				D0675A1818C52CD600BB2B87 /* YHWHVersesESV.plist in Resources */,
-				D0675A2318C548A300BB2B87 /* YHWHVersesNASB.plist in Resources */,
-				D0675A2618C548AB00BB2B87 /* YHWHVersesNIV.plist in Resources */,
-				D0675A2918C548B100BB2B87 /* YHWHVersesNKJV.plist in Resources */,
-				D0675A2C18C548B700BB2B87 /* YHWHVersesNLT.plist in Resources */,
-				D0FB11B518C17ACB00C1ECE8 /* TeXGyreHeros-Italic.otf in Resources */,
-				D0FB11A918C13F4A00C1ECE8 /* TeXGyreHeros-Regular.otf in Resources */,
-				D0FB11B718C182EE00C1ECE8 /* TeXGyreHeros-Bold.otf in Resources */,
-				D0FB11B918C182FA00C1ECE8 /* TeXGyreHeros-BoldItalic.otf in Resources */,
+				D0A53DA919CB698100306799 /* NamesOfGod.sqlite in Resources */,
+				D026D16719CD144500AF6775 /* TeXGyreHeros-Italic.otf in Resources */,
+				D0A53D7A19CB5EEF00306799 /* Main.storyboard in Resources */,
+				D026D16519CD144500AF6775 /* TeXGyreHeros-Bold.otf in Resources */,
+				D026D16619CD144500AF6775 /* TeXGyreHeros-BoldItalic.otf in Resources */,
+				D0A53D7F19CB5EEF00306799 /* LaunchScreen.xib in Resources */,
+				D0A53D7C19CB5EEF00306799 /* Images.xcassets in Resources */,
+				D026D16819CD144500AF6775 /* TeXGyreHeros-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D06662A318B404C800412865 /* Resources */ = {
+		D0A53D8219CB5EEF00306799 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D06662B118B404C800412865 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		D0183DB818EA3E9A009145ED /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "PATH=$PATH\\:/usr/local/bin ; export PATH\n\nhash oclint &> /dev/null\nif [ $? -eq 1 ]; then\necho >&2 \"oclint not found, analyzing stopped\"\nexit 1\nfi\n\ncd ${TARGET_TEMP_DIR}\n\nif [ ! -f compile_commands.json ]; then\necho \"[*] compile_commands.json not found, possibly clean was performed\"\necho \"[*] starting xcodebuild to rebuild the project..\"\n# clean previous output\nif [ -f xcodebuild.log ]; then\nrm xcodebuild.log\nfi\n\ncd ${SRCROOT}\nxcodebuild -target NamesOfGod -configuration Debug -scheme NamesOfGod clean\n\n#build xcodebuild.log\nxcodebuild -target NamesOfGod -configuration Debug -scheme NamesOfGod | tee ${TARGET_TEMP_DIR}/xcodebuild.log\n#xcodebuild <options>| tee ${TARGET_TEMP_DIR}/xcodebuild.log\n\necho \"[*] transforming xcodebuild.log into compile_commands.json...\"\ncd ${TARGET_TEMP_DIR}\n#transform it into compile_commands.json\noclint-xcodebuild\n\n#echo \"[*] copy compile_commands.json to the project root...\"\n#cp ${TARGET_TEMP_DIR}/compile_commands.json ${SRCROOT}/compile_commands.json\n\nfi\n\necho \"[*] starting analyzing\"\ncd \"${TARGET_TEMP_DIR}\"\noclint-json-compilation-database oclint_args \"-rc LONG_LINE=120\" | sed 's/\\(.*\\.\\m\\{1,2\\}:[0-9]*:[0-9]*:\\)/\\1 warning:/'";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		D066627A18B404C800412865 /* Sources */ = {
+		D0A53D6119CB5EEF00306799 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D0785B5118C046ED0004C642 /* YHWHName.m in Sources */,
-				D0FB119C18C0E66700C1ECE8 /* UIFont+YHWHCustomFont.m in Sources */,
-				D066629218B404C800412865 /* YHWHAppDelegate.m in Sources */,
-				D0183E0518EF2714009145ED /* UISegmentedControl+YHWHSegmentIndex.m in Sources */,
-				D066629B18B404C800412865 /* YHWHMasterViewController.m in Sources */,
-				D06662BE18B7E57200412865 /* YHWHTitleView.m in Sources */,
-				D066628E18B404C800412865 /* main.m in Sources */,
-				D0183DBB18EE1697009145ED /* UITextView+YHWHContentOffset.m in Sources */,
-				D092593218D5280D0014886F /* YHWHNames.m in Sources */,
-				D066629E18B404C800412865 /* YHWHDetailViewController.m in Sources */,
-				D0675A0F18C4293D00BB2B87 /* YHWHConstants.m in Sources */,
+				D026D16019CD10B700AF6775 /* UIFont+YHWHCustomFont.m in Sources */,
+				D0A53D7719CB5EEF00306799 /* YHWHDetailViewController.m in Sources */,
+				D0A53D7419CB5EEF00306799 /* YHWHMasterViewController.m in Sources */,
+				D026D16B19CF420C00AF6775 /* UISegmentedControl+YHWHSegmentIndex.m in Sources */,
+				D0A53DA719CB66B500306799 /* YHWHVerse.m in Sources */,
+				D0A53D6E19CB5EEF00306799 /* YHWHAppDelegate.m in Sources */,
+				D0A53D6B19CB5EEF00306799 /* main.m in Sources */,
+				D026D16E19CF46E500AF6775 /* YHWHConstants.m in Sources */,
+				D0A53DA519CB66B500306799 /* YHWHName.m in Sources */,
+				D0A53D7119CB5EEF00306799 /* NamesOfGod.xcdatamodeld in Sources */,
+				D0A53DA619CB66B500306799 /* _YHWHVerse.m in Sources */,
+				D0A53DA419CB66B500306799 /* _YHWHName.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D06662A118B404C800412865 /* Sources */ = {
+		D0A53D8019CB5EEF00306799 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D081EAF018F3ABE600631AEF /* UISegmentedControlCategoryTests.m in Sources */,
-				D0AE6FD718F34BD3004B8700 /* YHWHNameTests.m in Sources */,
-				D04251C518F460E6002391F0 /* YHWHNamesTests.m in Sources */,
+				D0EA9B331A0C7810007F7959 /* UISegmentedControlCategoryTests.m in Sources */,
+				D0A53D8B19CB5EEF00306799 /* NamesOfGodTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		D06662AB18B404C800412865 /* PBXTargetDependency */ = {
+		D0A53D8619CB5EEF00306799 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D066627D18B404C800412865 /* NamesOfGod */;
-			targetProxy = D06662AA18B404C800412865 /* PBXContainerItemProxy */;
+			target = D0A53D6419CB5EEF00306799 /* NamesOfGod */;
+			targetProxy = D0A53D8519CB5EEF00306799 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D066628A18B404C800412865 /* InfoPlist.strings */ = {
+		D0A53D7819CB5EEF00306799 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D066628B18B404C800412865 /* en */,
+				D0A53D7919CB5EEF00306799 /* Base */,
 			);
-			name = InfoPlist.strings;
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		D066629318B404C800412865 /* Main_iPhone.storyboard */ = {
+		D0A53D7D19CB5EEF00306799 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D066629418B404C800412865 /* Base */,
+				D0A53D7E19CB5EEF00306799 /* Base */,
 			);
-			name = Main_iPhone.storyboard;
-			sourceTree = "<group>";
-		};
-		D066629618B404C800412865 /* Main_iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D066629718B404C800412865 /* Base */,
-			);
-			name = Main_iPad.storyboard;
-			sourceTree = "<group>";
-		};
-		D06662AF18B404C800412865 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D06662B018B404C800412865 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		D0675A1418C444B700BB2B87 /* YHWHNamesOfGod.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D0675A1318C444B700BB2B87 /* Base */,
-			);
-			name = YHWHNamesOfGod.plist;
-			sourceTree = "<group>";
-		};
-		D0675A1A18C52CD600BB2B87 /* YHWHVersesESV.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D0675A1918C52CD600BB2B87 /* Base */,
-			);
-			name = YHWHVersesESV.plist;
-			sourceTree = "<group>";
-		};
-		D0675A2518C548A300BB2B87 /* YHWHVersesNASB.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D0675A2418C548A300BB2B87 /* Base */,
-			);
-			name = YHWHVersesNASB.plist;
-			sourceTree = "<group>";
-		};
-		D0675A2818C548AB00BB2B87 /* YHWHVersesNIV.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D0675A2718C548AB00BB2B87 /* Base */,
-			);
-			name = YHWHVersesNIV.plist;
-			sourceTree = "<group>";
-		};
-		D0675A2B18C548B100BB2B87 /* YHWHVersesNKJV.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D0675A2A18C548B100BB2B87 /* Base */,
-			);
-			name = YHWHVersesNKJV.plist;
-			sourceTree = "<group>";
-		};
-		D0675A2E18C548B700BB2B87 /* YHWHVersesNLT.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D0675A2D18C548B700BB2B87 /* Base */,
-			);
-			name = YHWHVersesNLT.plist;
+			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		D0183DB518EA3E80009145ED /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		D0183DB618EA3E80009145ED /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
-		D06662B418B404C800412865 /* Debug */ = {
+		D0A53D8C19CB5EEF00306799 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -563,9 +419,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -580,14 +438,21 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Weverything",
+					"-Wno-unused-parameter",
+				);
 			};
 			name = Debug;
 		};
-		D06662B518B404C800412865 /* Release */ = {
+		D0A53D8D19CB5EEF00306799 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -602,10 +467,12 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -613,130 +480,124 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		D06662B718B404C800412865 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "NamesOfGod/NamesOfGod-Prefix.pch";
-				INFOPLIST_FILE = "NamesOfGod/NamesOfGod-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				WARNING_CFLAGS = (
 					"-Wall",
 					"-Wextra",
 					"-Weverything",
+					"-Wno-unused-parameter",
 				);
-				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D0A53D8F19CB5EEF00306799 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "NamesOfGod/NamesOfGod-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
-		D06662B818B404C800412865 /* Release */ = {
+		D0A53D9019CB5EEF00306799 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "NamesOfGod/NamesOfGod-Prefix.pch";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "NamesOfGod/NamesOfGod-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WARNING_CFLAGS = (
-					"-Wall",
-					"-Wextra",
-					"-Weverything",
-				);
-				WRAPPER_EXTENSION = app;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
-		D06662BA18B404C800412865 /* Debug */ = {
+		D0A53D9219CB5EEF00306799 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NamesOfGod.app/NamesOfGod";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "NamesOfGod/NamesOfGod-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "NamesOfGodTests/NamesOfGodTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NamesOfGod.app/NamesOfGod";
 			};
 			name = Debug;
 		};
-		D06662BB18B404C800412865 /* Release */ = {
+		D0A53D9319CB5EEF00306799 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/NamesOfGod.app/NamesOfGod";
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
 				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "NamesOfGod/NamesOfGod-Prefix.pch";
 				INFOPLIST_FILE = "NamesOfGodTests/NamesOfGodTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NamesOfGod.app/NamesOfGod";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D0183DB718EA3E80009145ED /* Build configuration list for PBXAggregateTarget "OCLint" */ = {
+		D0A53D6019CB5EEF00306799 /* Build configuration list for PBXProject "NamesOfGod" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D0183DB518EA3E80009145ED /* Debug */,
-				D0183DB618EA3E80009145ED /* Release */,
+				D0A53D8C19CB5EEF00306799 /* Debug */,
+				D0A53D8D19CB5EEF00306799 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D066627918B404C800412865 /* Build configuration list for PBXProject "NamesOfGod" */ = {
+		D0A53D8E19CB5EEF00306799 /* Build configuration list for PBXNativeTarget "NamesOfGod" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D06662B418B404C800412865 /* Debug */,
-				D06662B518B404C800412865 /* Release */,
+				D0A53D8F19CB5EEF00306799 /* Debug */,
+				D0A53D9019CB5EEF00306799 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D06662B618B404C800412865 /* Build configuration list for PBXNativeTarget "NamesOfGod" */ = {
+		D0A53D9119CB5EEF00306799 /* Build configuration list for PBXNativeTarget "NamesOfGodTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D06662B718B404C800412865 /* Debug */,
-				D06662B818B404C800412865 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		D06662B918B404C800412865 /* Build configuration list for PBXNativeTarget "NamesOfGodTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				D06662BA18B404C800412865 /* Debug */,
-				D06662BB18B404C800412865 /* Release */,
+				D0A53D9219CB5EEF00306799 /* Debug */,
+				D0A53D9319CB5EEF00306799 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D0A53D6F19CB5EEF00306799 /* NamesOfGod.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D0A53D7019CB5EEF00306799 /* NamesOfGod.xcdatamodel */,
+			);
+			currentVersion = D0A53D7019CB5EEF00306799 /* NamesOfGod.xcdatamodel */;
+			path = NamesOfGod.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
-	rootObject = D066627618B404C800412865 /* Project object */;
+	rootObject = D0A53D5D19CB5EEF00306799 /* Project object */;
 }

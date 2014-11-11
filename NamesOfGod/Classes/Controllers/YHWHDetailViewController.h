@@ -2,7 +2,7 @@
 //  YHWHDetailViewController.h
 //  NamesOfGod
 //
-//  Created by Peter Jensen on 2/18/14.
+//  Created by Peter Jensen on 9/18/14.
 //  Copyright (c) 2014 Peter Christian Jensen.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,6 +24,9 @@
 // THE SOFTWARE.
 //
 
+@import UIKit;
+
+#import "YHWHMasterViewController.h"
 /**
  The detail view controller displays a name of God, along with one or more verses
  illustrating that name.
@@ -31,14 +34,23 @@
  It also displays a segmented control in the toolbar that lets the user select a
  bible version (translation) for the verses.
  */
-@interface YHWHDetailViewController : UIViewController <UISplitViewControllerDelegate>
+@interface YHWHDetailViewController : UIViewController
 /**
  Index path for the currently displayed name
  */
 @property (nonatomic, strong) NSIndexPath *indexPath;
 /**
+ (The Master view controller is our) Data source for the names of God
+ */
+@property (weak) id <YHWHNameDataSource> dataSource;
+/**
  Configure and display the (name) details for the current indexPath.
  */
 - (void)configureView;
+/**
+ Enable or disable up/down arrow buttons, depending on number of names
+ */
+- (void)enableOrDisableUpDownArrowBarButtonItems;
 
 @end
+

@@ -2,7 +2,7 @@
 //  YHWHDetailViewController.m
 //  NamesOfGod
 //
-//  Created by Peter Jensen on 2/18/14.
+//  Created by Peter Jensen on 9/18/14.
 //  Copyright (c) 2014 Peter Christian Jensen.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,17 +26,14 @@
 
 #import "YHWHDetailViewController.h"
 
-#import "YHWHName.h" // For the name custom object
-
-#import "YHWHNames.h" // For the sharedNames (model) singleton
-
 #import "UIFont+YHWHCustomFont.h" // For +yhwh_preferredCustomFontForTextStyle:
 
 #import "UISegmentedControl+YHWHSegmentIndex.h" // For -yhwh_selectSegmentWithTitle:
 
-#import "UITextView+YHWHContentOffset.h" // -yhwh_scrollToTopAndSetAttributedText:
-
 #import "YHWHConstants.h" // For user defaults preference keys
+
+#import "YHWHName.h"
+#import "YHWHVerse.h"
 
 @import CoreText; // For kLowerCaseType declaration
 
@@ -51,42 +48,53 @@
  A bible version segmented control.
 
  Displays names of selected/alternate bible translations.
-*/
+ */
 @property (nonatomic, strong) UISegmentedControl *versionSegmentedControl;
+/**
+ (Abbreviation for) The selected bible version.
+ */
+@property (nonatomic, strong) NSString *selectedVersion;
+/**
+ Key for the selected bible version.
+ */
+@property (nonatomic, strong) NSString *selectedVersionKey;
 /**
  Copyright message corresponding to the selected bible version.
  */
 @property (nonatomic, strong) NSString *versionCopyright;
 /**
- The (custom) preferred headline font.
+ The (custom) preferred headline font
  */
-@property (nonatomic, strong) UIFont *preferredHeadlineFont;
+@property (nonatomic, strong) UIFont *titlePreferredFont;
 /**
- The (custom) preferred subheadline font, using the small-caps feature.
+ The (custom) preferred headline small caps font
  */
-@property (nonatomic, strong) UIFont *preferredSubheadlineFont;
+@property (nonatomic, strong) UIFont *smallCapsTitlePreferredFont;
 /**
  The (custom) preferred body font.
  */
-@property (nonatomic, strong) UIFont *preferredBodyFont;
+@property (nonatomic, strong) UIFont *bodyPreferredFont;
 /**
- The (custom) preferred footnote custom font, using the italic trait.
+ The (custom) preferred footnote font, using the italic trait.
  */
-@property (nonatomic, strong) UIFont *preferredFootnoteFont;
+@property (nonatomic, strong) UIFont *footnotePreferredFont;
 
 @end
 
 @implementation YHWHDetailViewController
 
 @synthesize indexPath = _indexPath;
+@synthesize dataSource = _dataSource;
 
 @synthesize textView = _textView;
 @synthesize versionSegmentedControl = _versionSegmentedControl;
+@synthesize selectedVersion = _selectedVersion;
+@synthesize selectedVersionKey = _selectedVersionKey;
 @synthesize versionCopyright = _versionCopyright;
-@synthesize preferredHeadlineFont = _preferredHeadlineFont;
-@synthesize preferredSubheadlineFont = _preferredSubheadlineFont;
-@synthesize preferredBodyFont = _preferredBodyFont;
-@synthesize preferredFootnoteFont = _preferredFootnoteFont;
+@synthesize titlePreferredFont = _titlePreferredFont;
+@synthesize smallCapsTitlePreferredFont = _smallCapsTitlePreferredFont;
+@synthesize bodyPreferredFont = _bodyPreferredFont;
+@synthesize footnotePreferredFont = _footnotePreferredFont;
 
 #pragma mark - Initialization
 
@@ -98,7 +106,7 @@
     {
         // Custom initialization
         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(systemContentSizeChanged:)
+                                                 selector:@selector(contentSizeChanged:)
                                                      name:UIContentSizeCategoryDidChangeNotification
                                                    object:nil];
     }
@@ -119,19 +127,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
-    {
-        // Add up/down arrow buttons for iPhone (to let the user navigate through the
-        // names without having to return back to the master view)
+    // Add up/down arrow buttons for collapsed detail view (to let the user navigate
+    // through the names without having to return back to the master view)
 
-        [self setupUpDownRightBarButtonItems];
-    }
+    [self setupUpDownRightBarButtonItems];
 
     // Add top, leading, and trailing padding to provide some white space around the
     // content
 
     self.textView.textContainerInset = UIEdgeInsetsMake(10.0f, 6.0f, 0.0f, 6.0f);
-
+    
     // Using toolbarItems lets the controller manage its bottom layout guide, which
     // will control the content's edge insets. (This is doubly important for auto
     // rotation, as the iPhone's toolbar height changes depending on orientation.)
@@ -146,14 +151,8 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    self.navigationController.toolbarHidden = NO;
     [super viewWillAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    self.navigationController.toolbarHidden = YES;
-    [super viewWillDisappear:animated];
+    [self adjustViewControllerTitleForHorizontalSizeClass:self.view.traitCollection.horizontalSizeClass];
 }
 
 - (void)didReceiveMemoryWarning
@@ -162,33 +161,121 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Private methods
+#pragma mark - Public methods
 
-- (void)p_determinePreferredFonts
+- (void)configureView
 {
-    // Use Dynamic Type
-    self.preferredHeadlineFont = [UIFont yhwh_preferredCustomFontForTextStyle:UIFontTextStyleHeadline];
-    self.preferredSubheadlineFont = [UIFont yhwh_preferredCustomFontForTextStyle:UIFontTextStyleSubheadline];
-    self.preferredBodyFont = [UIFont yhwh_preferredCustomFontForTextStyle:UIFontTextStyleBody];
-    self.preferredFootnoteFont = [UIFont yhwh_preferredCustomFontForTextStyle:UIFontTextStyleFootnote];
+    if (![self.dataSource respondsToSelector:@selector(nameAtIndexPath:)])
+    {
+        return;
+    }
 
-    // Change the Footnote font's trait to italics
+    // Ask our data source for the name at our index path
 
-    UIFontDescriptor *descriptor = [self.preferredFootnoteFont fontDescriptor];
-    UIFontDescriptorSymbolicTraits symbolicTraits = descriptor.symbolicTraits | UIFontDescriptorTraitItalic;
-    self.preferredFootnoteFont = [UIFont fontWithDescriptor:[descriptor fontDescriptorWithSymbolicTraits:symbolicTraits]
-                                                       size:0.0f];
+    YHWHName *name = [self.dataSource nameAtIndexPath:self.indexPath];
 
-    // Change the Subheadline font's variant to small-caps
+    if (!name)
+    {
+        // Fall back to the first name in the list
 
-    descriptor = [self.preferredSubheadlineFont fontDescriptor];
-    NSArray *array = @[@{ UIFontFeatureTypeIdentifierKey : @(kLowerCaseType),
-                          UIFontFeatureSelectorIdentifierKey : @(kLowerCaseSmallCapsSelector) }];
-    descriptor = [descriptor fontDescriptorByAddingAttributes:@{ UIFontDescriptorFeatureSettingsAttribute : array }];
-    self.preferredSubheadlineFont = [UIFont fontWithDescriptor:descriptor size:0.0f];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+
+        name = [self.dataSource nameAtIndexPath:indexPath];
+
+        if (!name)
+        {
+            // No name (likely due to no results).  There is nothing to display in our detail view
+            self.textView.attributedText = nil;
+            return;
+        }
+        else
+        {
+            self.indexPath = indexPath; // The fallback index path is valid
+        }
+    }
+
+    // Update the user interface
+
+    [self displayDetailsForName:name];
 }
 
-- (void)systemContentSizeChanged:(NSNotification *)__unused notification
+- (void)enableOrDisableUpDownArrowBarButtonItems
+{
+    if (![self.dataSource respondsToSelector:@selector(numberOfNames)])
+    {
+        return;
+    }
+
+    NSUInteger numberOfNames = [self.dataSource numberOfNames];
+
+    // Enable or disable up/down arrow buttons, depending on number of names
+
+    BOOL enabled = (numberOfNames > 1);
+
+    for (UIBarButtonItem *barButtonItem in self.navigationItem.rightBarButtonItems)
+    {
+        barButtonItem.enabled = enabled;
+    }
+}
+
+#pragma mark - <UITraitEnvironment>
+
+- (void)traitCollectionDidChange:(UITraitCollection *)previousTraitCollection
+{
+    if (self.view.traitCollection.horizontalSizeClass != previousTraitCollection.horizontalSizeClass)
+    {
+        [self adjustViewControllerTitleForHorizontalSizeClass:self.view.traitCollection.horizontalSizeClass];
+    }
+}
+
+#pragma mark - <UIStateRestoring>
+
+static NSString *IndexPathKey = @"IndexPathKey";
+
+- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [super encodeRestorableStateWithCoder:coder];
+    // Since the database is static (and the app won't restore state from a previous
+    // build, it's safe to rely on restoring from an indexPath between launches.
+
+    // encode the indexPath
+    [coder encodeObject:self.indexPath forKey:IndexPathKey];
+}
+
+- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
+{
+    [super decodeRestorableStateWithCoder:coder];
+
+    // Restore the index path
+    self.indexPath = [coder decodeObjectForKey:IndexPathKey];
+}
+
+- (void)applicationFinishedRestoringState
+{
+    if ([[[self.splitViewController viewControllers] firstObject] isKindOfClass:[UINavigationController class]])
+    {
+        UINavigationController *primaryViewController = [[self.splitViewController viewControllers] firstObject];
+
+        if ([[[primaryViewController viewControllers] firstObject] isKindOfClass:[YHWHMasterViewController class]])
+        {
+            // Restore the detail view's data source
+            self.dataSource = [[primaryViewController viewControllers] firstObject];
+        }
+    }
+
+    self.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
+    self.navigationItem.leftItemsSupplementBackButton = YES;
+
+    // State restoration may have filtered the name data.
+    [self enableOrDisableUpDownArrowBarButtonItems];
+
+    // Restore the detail view's content
+    [self configureView];
+}
+
+#pragma mark - Notification handlers
+
+- (void)contentSizeChanged:(NSNotification *)__unused notification
 {
     [self p_determinePreferredFonts];
 
@@ -198,24 +285,118 @@
     [self configureView];
 }
 
+#pragma mark - Actions
+
+- (void)versionChanged:(UISegmentedControl *)sender
+{
+    self.selectedVersion = [sender yhwh_titleForSelectedSegment];
+    self.selectedVersionKey = [NSString stringWithFormat:@"text%@", self.selectedVersion];
+
+    // Save the new version in user defaults
+
+    [[NSUserDefaults standardUserDefaults] setValue:self.selectedVersion forKey:kYHWHUserVersionKey];
+
+    // Change the copyright message to match the selected version
+
+    self.versionCopyright = [self copyrightForVersion:self.selectedVersion];
+
+    [self configureView];
+}
+
+- (IBAction)displayNextName
+{
+    if ([self.dataSource respondsToSelector:@selector(indexPathAfterIndexPath:)])
+    {
+        // Increment the indexPath, and display the next name.
+        self.indexPath = [self.dataSource indexPathAfterIndexPath:self.indexPath];
+        [self configureView];
+    }
+}
+
+- (IBAction)displayPreviousName
+{
+    if ([self.dataSource respondsToSelector:@selector(indexPathBeforeIndexPath:)])
+    {
+        // Decrement the indexPath, and display the previous name.
+        self.indexPath = [self.dataSource indexPathBeforeIndexPath:self.indexPath];
+        [self configureView];
+    }
+}
+
+#pragma mark - Private methods
+
+- (void)p_determinePreferredFonts
+{
+    // Use Dynamic Type
+
+    self.titlePreferredFont = [UIFont yhwh_preferredCustomFontForTextStyle:UIFontTextStyleHeadline];
+
+    // Create small-caps title variant
+
+    NSArray *fontFeatureSettings = @[
+                                     @{
+                                         UIFontFeatureTypeIdentifierKey : @(kLowerCaseType),
+                                         UIFontFeatureSelectorIdentifierKey : @(kLowerCaseSmallCapsSelector)
+                                         },
+                                     ];
+
+    NSDictionary *attributes = @{
+                                 UIFontDescriptorFeatureSettingsAttribute: fontFeatureSettings
+                                 };
+
+    UIFontDescriptor *fontDesc = self.titlePreferredFont.fontDescriptor;
+
+    fontDesc = [fontDesc fontDescriptorByAddingAttributes:attributes]; // enable small caps feature
+
+    self.smallCapsTitlePreferredFont = [UIFont fontWithDescriptor:fontDesc size:[self.titlePreferredFont pointSize]];
+
+    self.bodyPreferredFont = [UIFont yhwh_preferredCustomFontForTextStyle:UIFontTextStyleBody];
+
+    self.footnotePreferredFont = [UIFont yhwh_preferredCustomFontForTextStyle:UIFontTextStyleFootnote];
+
+    // Change the Footnote font's trait to italics
+
+    fontDesc = [self.footnotePreferredFont fontDescriptor];
+    UIFontDescriptorSymbolicTraits symbolicTraits = fontDesc.symbolicTraits | UIFontDescriptorTraitItalic;
+    self.footnotePreferredFont = [UIFont fontWithDescriptor:[fontDesc fontDescriptorWithSymbolicTraits:symbolicTraits]
+                                                       size:0.0f];
+}
+
+- (void)adjustViewControllerTitleForHorizontalSizeClass:(UIUserInterfaceSizeClass)horizontalSizeClass
+{
+    NSString *viewControllerTitle = nil;
+
+    switch (horizontalSizeClass)
+    {
+        case UIUserInterfaceSizeClassRegular:
+            viewControllerTitle = @"Names of God";
+            break;
+        case UIUserInterfaceSizeClassCompact:
+        case UIUserInterfaceSizeClassUnspecified:
+            viewControllerTitle = @"God";
+            break;
+    }
+    self.title = viewControllerTitle;
+}
+
 - (void)setupUpDownRightBarButtonItems
 {
     UIBarButtonItem *upArrow = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"UIButtonBarArrowUp"]
-                                                                style:UIBarButtonItemStyleBordered
+                                                                style:UIBarButtonItemStylePlain
                                                                target:self
-                                                               action:@selector(upArrowPressed:)];
+                                                               action:@selector(displayPreviousName)];
 
     UIBarButtonItem *downArrow = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"UIButtonBarArrowDown"]
-                                                                  style:UIBarButtonItemStyleBordered
+                                                                  style:UIBarButtonItemStylePlain
                                                                  target:self
-                                                                 action:@selector(downArrowPressed:)];
+                                                                 action:@selector(displayNextName)];
 
     self.navigationItem.rightBarButtonItems = @[downArrow, upArrow];
 
     // Determine if we have more than one name (or not), and enable (or disable)
     // the up/down arrow buttons.
 
-    [self tallyNameDataAndEnableOrDisableUpDownArrowBarButtonItems];
+    [self enableOrDisableUpDownArrowBarButtonItems];
 }
 
 /**
@@ -224,6 +405,7 @@
 - (void)setupBibleVersionToolbarItems
 {
     self.versionSegmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"ESV",
+                                                                               @"KJV",
                                                                                @"NASB",
                                                                                @"NIV",
                                                                                @"NKJV",
@@ -238,8 +420,8 @@
     bibleVersionItem.width = 300.0f;
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc]
                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                                                           target:nil
-                                                           action:nil];
+                                      target:nil
+                                      action:nil];
 
     self.toolbarItems = @[flexibleSpace, bibleVersionItem, flexibleSpace];
 
@@ -249,22 +431,15 @@
 
     [self.versionSegmentedControl yhwh_selectSegmentWithTitle:version];
 
-    self.versionCopyright = [self copyrightForVersion:[self.versionSegmentedControl yhwh_titleForSelectedSegment]];
+    self.selectedVersion = [self.versionSegmentedControl yhwh_titleForSelectedSegment];
+
+    self.selectedVersionKey = [NSString stringWithFormat:@"text%@", self.selectedVersion];
+
+    self.versionCopyright = [self copyrightForVersion:self.selectedVersion];
 }
 
-- (void)configureView
+- (void)displayDetailsForName:(YHWHName *)name
 {
-    // Update the user interface
-
-    YHWHName *name = [[YHWHNames sharedNames] nameAtIndexPath:self.indexPath];
-
-    if (!name)
-    {
-        // If there is no name, there is nothing to display in our detail view
-        [self.textView yhwh_scrollToTopAndSetAttributedText:nil];
-        return;
-    }
-
     // Create an attributed string of name details to be displayed in the textView
 
     NSMutableAttributedString *styledText = [self headlineTextForName:name];
@@ -280,7 +455,7 @@
         [styledText appendAttributedString:[self footnoteTextForVersionCopyright:self.versionCopyright]];
     }
 
-    [self.textView yhwh_scrollToTopAndSetAttributedText:styledText];
+    self.textView.attributedText = styledText;
 }
 
 /**
@@ -294,26 +469,23 @@
 {
     NSString *name = [NSString stringWithFormat:@"%@\n", [aName name]];
 
-    NSMutableAttributedString *headline = [[NSMutableAttributedString alloc] initWithString:name];
+    NSMutableAttributedString *headline = [[NSMutableAttributedString alloc] initWithString:name
+                                                                                 attributes:@{NSFontAttributeName : [aName smallCapsValue] ? self.smallCapsTitlePreferredFont : self.titlePreferredFont}];
 
-    [headline addAttribute:NSFontAttributeName
-                     value:self.preferredHeadlineFont
-                     range:NSMakeRange(0, [headline length])];
+    // Also display any other related names
 
-    // Add any (optional) alternate name to the headline
+    YHWHName *nextName = [aName nextRelatedName];
 
-    if ([[aName alternateName] length])
+    while (nextName && nextName != aName) // Stop once the linked list has wrapped around to the initial name
     {
-        NSString *alternateName = [NSString stringWithFormat:@"%@\n", [aName alternateName]];
+        name = [NSString stringWithFormat:@"%@\n", [nextName name]];
 
-        NSMutableAttributedString *subheadline = [[NSMutableAttributedString alloc] initWithString:alternateName];
-
-        [subheadline addAttribute:NSFontAttributeName
-                            value:self.preferredSubheadlineFont
-                            range:NSMakeRange(0, [subheadline length])];
-
-        [headline appendAttributedString:subheadline];
+        [headline appendAttributedString:[[NSAttributedString alloc] initWithString:name
+                                                                         attributes:@{NSFontAttributeName : [nextName smallCapsValue] ? self.smallCapsTitlePreferredFont : self.titlePreferredFont}]];
+        nextName = nextName.nextRelatedName; // Advance to the next name in the list
     }
+
+    [headline appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n"]];
 
     return headline;
 }
@@ -338,37 +510,25 @@
 
     [paragraphStyle setAlignment:NSTextAlignmentRight];
 
-    // Add bible verse and reference pairs
+    // Add bible verse(s)
 
-    NSArray *verseAndReference = [self verseAtIndex:[aName verseIndex]];
+    BOOL initialVerse = YES;
 
-    NSUInteger count = [verseAndReference count];
-
-    for (NSUInteger index = 0; index < count; index++)
+    for (YHWHVerse *verse in aName.versesWithName)
     {
-        NSString *verseOrReferenceText = [NSString stringWithFormat:@"%@%@\n", (index % 2 ? @"—" : @"\n"),
-                                          verseAndReference[index]];
-        NSMutableAttributedString *verseOrReference = [[NSMutableAttributedString alloc]
-                                                       initWithString:verseOrReferenceText];
+        // Append verse
 
-        NSRange verseOrRefRange = NSMakeRange(0, [verseOrReference length]);
+        [body appendAttributedString:[self applySmallCapsToDelimitedText:[[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@%@\n",
+                                                                                                                            initialVerse ? @"" : @"\n",
+                                                                                                                            [verse valueForKey:self.selectedVersionKey]]
+                                                                                                                attributes:@{NSFontAttributeName : self.bodyPreferredFont}]]];
 
-        [verseOrReference addAttribute:NSFontAttributeName value:self.preferredBodyFont range:verseOrRefRange];
+        // Append reference
 
-        if (index % 2)
-        {
-            // Right-align bible references (odd indices)
-
-            [verseOrReference addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:verseOrRefRange];
-        }
-        else
-        {
-            // Bible verses (even indices)
-
-            verseOrReference = [self applySmallCapsToDelimitedText:verseOrReference];
-        }
-
-        [body appendAttributedString:verseOrReference];
+        [body appendAttributedString:[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"—%@ %@\n", [verse reference], self.selectedVersion]
+                                                                     attributes:@{NSFontAttributeName : self.bodyPreferredFont,
+                                                                                  NSParagraphStyleAttributeName : paragraphStyle}]];
+        initialVerse = NO;
     }
 
     return body;
@@ -385,7 +545,7 @@
 {
     // Setup the small caps font variant
 
-    UIFontDescriptor *descriptor = [self.preferredBodyFont fontDescriptor];
+    UIFontDescriptor *descriptor = [self.bodyPreferredFont fontDescriptor];
     NSArray *array = @[@{ UIFontFeatureTypeIdentifierKey : @(kLowerCaseType),
                           UIFontFeatureSelectorIdentifierKey : @(kLowerCaseSmallCapsSelector) }];
 
@@ -445,144 +605,36 @@
     NSMutableAttributedString *footnote = [[NSMutableAttributedString alloc] initWithString:footnoteCopyright];
 
     [footnote addAttribute:NSFontAttributeName
-                     value:self.preferredFootnoteFont
+                     value:self.footnotePreferredFont
                      range:NSMakeRange(0, [footnote length])];
 
     return footnote;
 }
 
-- (void)downArrowPressed:(UIBarButtonItem *)__unused sender
-{
-    // Increment the indexPath, and display the next name.
-    self.indexPath = [[YHWHNames sharedNames] indexPathAfterIndexPath:self.indexPath];
-    [self configureView];
-}
-
-- (void)upArrowPressed:(UIBarButtonItem *)__unused sender
-{
-    // Decrement the indexPath, and display the previous name.
-    self.indexPath = [[YHWHNames sharedNames] indexPathBeforeIndexPath:self.indexPath];
-    [self configureView];
-}
-
-- (NSArray *)verseAtIndex:(NSUInteger)index
-{
-    NSString *version = [self.versionSegmentedControl yhwh_titleForSelectedSegment];
-    NSString *versionFileName = [NSString stringWithFormat:@"YHWHVerses%@", version];
-    NSString *versesPlistPath = [[NSBundle mainBundle] pathForResource:versionFileName ofType:@"plist"];
-
-    NSArray *verses = [NSArray arrayWithContentsOfFile:versesPlistPath];
-
-    if (index < [verses count])
-    {
-        return verses[index];
-    }
-    return nil;
-}
-
 - (NSString *)copyrightForVersion:(NSString *)version
 {
     NSDictionary *copyright = @{
-        @"ESV" : @"Scripture quotations are from The Holy Bible, English Standard Version® (ESV®). "
-        "Copyright © 2001 by Crossway, a publishing ministry of Good News Publishers. "
-        "Used by permission. All rights reserved.",
-        @"NASB" : @"Scripture quotations are from the New American Standard Bible® (NASB®). "
-        "Copyright © 1960, 1962, 1963, 1968, 1971, 1972, 1973, 1975, 1977, 1995 by The Lockman Foundation. "
-        "Used by permission.",
-        @"NIV"  : @"Scripture quotations are from The Holy Bible, New International Version® (NIV®). "
-        "Copyright © 1973, 1978, 1984, 2011 by Biblica, Inc.® "
-        "Used by permission. All rights reserved worldwide.",
-        @"NKJV" : @"Scripture quotations are from the New King James Version® (NKJV®). "
-        "Copyright © 1982 by Thomas Nelson, Inc. "
-        "Used by permission. All rights reserved.",
-        @"NLT"  : @"Scripture quotations are from the Holy Bible, New Living Translation® (NLT®). "
-        "Copyright © 1996, 2004, 2007 by Tyndale House Foundation. "
-        "Used by permission of Tyndale House Publishers, Inc., Carol Stream, Illinois 60188. All rights reserved."
-    };
-
+                                @"ESV" : @"Scripture quotations are from The Holy Bible, English Standard Version® (ESV®). "
+                                "Copyright © 2001 by Crossway, a publishing ministry of Good News Publishers. "
+                                "Used by permission. All rights reserved.",
+                                @"KJV" : @"Scripture quotations are from The Authorized (King James) Version (KJV). "
+                                "Rights in the Authorized Version in the United Kingdom are vested in the Crown. "
+                                "Used by permission of the Crown’s patentee, Cambridge University Press.",
+                                @"NASB" : @"Scripture quotations are from the New American Standard Bible® (NASB®). "
+                                "Copyright © 1960, 1962, 1963, 1968, 1971, 1972, 1973, 1975, 1977, 1995 by The Lockman Foundation. "
+                                "Used by permission.",
+                                @"NIV"  : @"Scripture quotations are from The Holy Bible, New International Version® (NIV®). "
+                                "Copyright © 1973, 1978, 1984, 2011 by Biblica, Inc.® "
+                                "Used by permission. All rights reserved worldwide.",
+                                @"NKJV" : @"Scripture quotations are from the New King James Version® (NKJV®). "
+                                "Copyright © 1982 by Thomas Nelson, Inc. "
+                                "Used by permission. All rights reserved.",
+                                @"NLT"  : @"Scripture quotations are from the Holy Bible, New Living Translation® (NLT®). "
+                                "Copyright © 1996, 2004, 2007 by Tyndale House Foundation. "
+                                "Used by permission of Tyndale House Publishers, Inc., Carol Stream, Illinois 60188. All rights reserved."
+                                };
+    
     return copyright[version];
-}
-
-- (void)versionChanged:(UISegmentedControl *)sender
-{
-    NSString *title = [sender yhwh_titleForSelectedSegment];
-
-    // Save the new version in user defaults
-
-    [[NSUserDefaults standardUserDefaults] setValue:title forKey:kYHWHUserVersionKey];
-
-    // Change the copyright message to match the selected version
-
-    self.versionCopyright = [self copyrightForVersion:title];
-
-    [self configureView];
-}
-
-- (void)tallyNameDataAndEnableOrDisableUpDownArrowBarButtonItems
-{
-    // Determine if there is more than one name in nameData
-
-    NSUInteger tally = 0;
-
-    for (NSArray *section in [[YHWHNames sharedNames] nameData])
-    {
-        tally += [section count];
-        if (tally > 1)
-        {
-            // Stop enumerating if there is more than one name
-            break;
-        }
-    }
-
-    // Enable or disable up/down arrow buttons, depending on tally (not) greater than
-    // 1 (name)
-    for (UIBarButtonItem *barButtonItem in self.navigationItem.rightBarButtonItems)
-    {
-        barButtonItem.enabled = (tally > 1);
-    }
-}
-
-#pragma mark - UISplitViewController Protocol
-
-- (BOOL) splitViewController:(UISplitViewController *)__unused splitViewController
-    shouldHideViewController:(UIViewController *)__unused viewController
-               inOrientation:(UIInterfaceOrientation)__unused orientation
-{
-    return NO;
-}
-
-#pragma mark - UIStateRestoring Protocol
-
-static NSString * const kYHWHnameIDKey = @"yhwh_stateNameIdentifier";
-
-- (void)encodeRestorableStateWithCoder:(NSCoder *)coder
-{
-    [super encodeRestorableStateWithCoder:coder];
-    // Preserve a name identifier instead of an index path (as an index path may
-    // change).
-    NSString *nameIdentifier = [[YHWHNames sharedNames] modelIdentifierForElementAtIndexPath:self.indexPath];
-    [coder encodeObject:nameIdentifier forKey:kYHWHnameIDKey];
-}
-
-- (void)decodeRestorableStateWithCoder:(NSCoder *)coder
-{
-    [super decodeRestorableStateWithCoder:coder];
-    // Restore the index path, as the user may have moved up or down to a different
-    // name.
-    NSString *nameIdentifier = [coder decodeObjectForKey:kYHWHnameIDKey];
-    self.indexPath = [[YHWHNames sharedNames] indexPathForElementWithModelIdentifier:nameIdentifier];
-}
-
-- (void)applicationFinishedRestoringState
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
-    {
-        // Restoration may have filtered the name data. Retally it (to enable or
-        // disable the up/down arrows)
-        [self tallyNameDataAndEnableOrDisableUpDownArrowBarButtonItems];
-    }
-    // Restore the detail view's content
-    [self configureView];
 }
 
 @end

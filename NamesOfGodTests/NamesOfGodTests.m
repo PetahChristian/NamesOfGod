@@ -1,8 +1,8 @@
 //
-//  YHWHTitleView.m
-//  NamesOfGod
+//  NamesOfGodTests.m
+//  NamesOfGodTests
 //
-//  Created by Peter Jensen on 2/21/14.
+//  Created by Peter Jensen on 9/18/14.
 //  Copyright (c) 2014 Peter Christian Jensen.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,39 +24,42 @@
 // THE SOFTWARE.
 //
 
-#import "YHWHTitleView.h"
+@import UIKit;
+@import XCTest;
 
-@implementation YHWHTitleView
+@interface NamesOfGodTests : XCTestCase
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
+@end
+
+@implementation NamesOfGodTests
+
+- (void)setUp
 {
-    self = [super initWithCoder:aDecoder];
-    if (self)
-    {
-        // Initialization code
-        [self setAutoresizingMask:
-         (UIViewAutoresizing)(UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth)];
-    }
-    return self;
+    [super setUp];
+    // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
-- (void)willMoveToSuperview:(UIView *)newSuperview
+- (void)tearDown
 {
-    [self setFrame:[newSuperview bounds]];
+    // Put teardown code here. This method is called after the invocation of each test method in the class.
+    [super tearDown];
 }
 
-// Autoresizing mask constraints placed on the titleView (by the NavigationBar)
-// limit its width to navigationBar.width - 16
-
-// Changing our view's edge insets give the illusion that our titleView extends
-// to the edge of the navigationBar. (In actuality, it eliminates any padding
-// between our searchBar subView and its superview, making the searchBar wider.)
-
-// |-8-|-8-[searchBar]-8-|-8-| becomes |-8-|[searchBar]|-8-|
-
-- (UIEdgeInsets)alignmentRectInsets
+- (void)testExample
 {
-    return UIEdgeInsetsMake(0.0f, -8.0f, 0.0f, -8.0f);
+    // This is an example of a functional test case.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wgnu-statement-expression" // Suppress warning: use of GNU statement expression extension [-Wgnu-statement-expression]
+    XCTAssert(YES, @"Pass");
+#pragma clang diagnostic pop
+}
+
+- (void)testPerformanceExample
+{
+    // This is an example of a performance test case.
+    [self measureBlock:^{
+        // Put the code you want to measure the time of here.
+    }];
 }
 
 @end

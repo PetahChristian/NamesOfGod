@@ -24,6 +24,8 @@
 // THE SOFTWARE.
 //
 
+@import UIKit;
+
 @interface UIFont (YHWHCustomFont)
 /**
  Returns a (custom) font matching the specified text style and the user's selected

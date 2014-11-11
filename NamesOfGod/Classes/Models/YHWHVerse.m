@@ -1,12 +1,12 @@
-#import "YHWHName.h"
+#import "YHWHVerse.h"
 
-@interface YHWHName ()
+@interface YHWHVerse ()
 
 // Private interface goes here.
 
 @end
 
-@implementation YHWHName
+@implementation YHWHVerse
 
 // Custom logic goes here.
 

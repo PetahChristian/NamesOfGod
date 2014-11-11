@@ -2,7 +2,7 @@
 //  main.m
 //  NamesOfGod
 //
-//  Created by Peter Jensen on 2/18/14.
+//  Created by Peter Jensen on 9/18/14.
 //  Copyright (c) 2014 Peter Christian Jensen.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,12 +24,13 @@
 // THE SOFTWARE.
 //
 
+@import UIKit;
 #import "YHWHAppDelegate.h"
 
-int main(int argc, char *argv[])
+int main(int argc, char * argv[])
 {
-    @autoreleasepool {
+    @autoreleasepool
+    {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([YHWHAppDelegate class]));
     }
 }
-

@@ -27,6 +27,8 @@
 #ifndef Names_of_God_YHWHConstants_h
 #define Names_of_God_YHWHConstants_h
 
+@import UIKit;
+
 ///-----------------------------------------------
 /// @name NSUserDefaults keys for user preferences
 ///-----------------------------------------------

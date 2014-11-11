@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14A388a" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="YHWHName" representedClassName="YHWHName" syncable="YES">
+        <attribute name="name" attributeType="String" minValueString="1" indexed="YES" syncable="YES"/>
+        <attribute name="normalizedName" attributeType="String" minValueString="1" indexed="YES" syncable="YES"/>
+        <attribute name="romanizedName" optional="YES" attributeType="String" minValueString="1" syncable="YES"/>
+        <attribute name="smallCaps" attributeType="Boolean" minValueString="1" defaultValueString="NO" syncable="YES"/>
+        <relationship name="nextRelatedName" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="YHWHName" inverseName="prevRelatedName" inverseEntity="YHWHName" syncable="YES"/>
+        <relationship name="prevRelatedName" optional="YES" maxCount="1" deletionRule="Deny" destinationEntity="YHWHName" inverseName="nextRelatedName" inverseEntity="YHWHName" syncable="YES"/>
+        <relationship name="versesWithName" toMany="YES" deletionRule="Deny" ordered="YES" destinationEntity="YHWHVerse" inverseName="namesWithinVerse" inverseEntity="YHWHVerse" syncable="YES"/>
+    </entity>
+    <entity name="YHWHVerse" representedClassName="YHWHVerse" syncable="YES">
+        <attribute name="bcv" attributeType="Integer 32" minValueString="1001001" maxValueString="66022021" defaultValueString="1001001" syncable="YES"/>
+        <attribute name="reference" attributeType="String" minValueString="1" syncable="YES"/>
+        <attribute name="textESV" attributeType="String" minValueString="1" syncable="YES"/>
+        <attribute name="textKJV" attributeType="String" minValueString="1" syncable="YES"/>
+        <attribute name="textNASB" attributeType="String" minValueString="1" syncable="YES"/>
+        <attribute name="textNIV" attributeType="String" minValueString="1" syncable="YES"/>
+        <attribute name="textNKJV" attributeType="String" minValueString="1" syncable="YES"/>
+        <attribute name="textNLT" attributeType="String" minValueString="1" syncable="YES"/>
+        <relationship name="namesWithinVerse" toMany="YES" deletionRule="Deny" destinationEntity="YHWHName" inverseName="versesWithName" inverseEntity="YHWHName" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="YHWHName" positionX="-936" positionY="-360" width="128" height="150"/>
+        <element name="YHWHVerse" positionX="-720" positionY="-360" width="128" height="180"/>
+    </elements>
+</model>
